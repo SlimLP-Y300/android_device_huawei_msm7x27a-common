@@ -156,7 +156,10 @@ on boot
 
     # Enable UKSM
     write /sys/kernel/mm/uksm/run 1
-
+    chown root system /sys/kernel/mm/uksm/sleep_millisecs
+    chmod 0664 /sys/kernel/mm/uksm/sleep_millisecs
+    write /sys/kernel/mm/uksm/sleep_millisecs 500
+    
     # Enable sysrq
     write /proc/sys/kernel/sysrq 1
 
@@ -200,7 +203,7 @@ on post-fs-data
     mkdir /data/wiper 0755 gps qcom_oncrpc
 
     # Set button backlight brightness
-    write /sys/class/leds/button-backlight/max_brightness 50
+    write /sys/class/leds/button-backlight/max_brightness 20
 
     chown system system /sys/class/android_usb/android0/f_mass_storage/lun/file
     chmod 0660 /sys/class/android_usb/android0/f_mass_storage/lun/file
