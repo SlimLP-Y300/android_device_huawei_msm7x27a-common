@@ -16,6 +16,8 @@
 
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 
+$(call inherit-product, frameworks/native/build/phone-hdpi-512-dalvik-heap.mk)
+
 # The GPS configuration appropriate for this device.
 $(call inherit-product, device/common/gps/gps_eu_supl.mk)
 
@@ -138,10 +140,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.sf.lcd_density=240
 
 PRODUCT_PROPERTY_OVERRIDES += \
-    dalvik.vm.heapgrowthlimit=52m \
-    dalvik.vm.heapsize=128m
-
-PRODUCT_PROPERTY_OVERRIDES += \
     com.qc.hardware=true \
     dev.pm.dyn_sample_period=700000 \
     dev.pm.dyn_samplingrate=1 \
@@ -170,11 +168,15 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.config.low_ram=true \
     config.disable_atlas=true \
-    dalvik.vm.jit.codecachesize=0 \
     persist.sys.force_highendgfx=true \
     ro.config.max_starting_bg=6 \
     ro.sys.fw.bg_apps_limit=8
-    
+
+# Strict mode
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.sys.strictmode.visual=0 \
+    persist.sys.strictmode.disable=1
+
 # FM Radio
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.fm.analogpath.supported=false \
