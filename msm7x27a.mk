@@ -70,7 +70,8 @@ PRODUCT_PACKAGES += \
     hostapd \
     dhcpcd.conf \
     wpa_supplicant \
-    wpa_supplicant.conf
+    wpa_supplicant.conf \
+    libnetcmdiface
 
 # Files
 PRODUCT_COPY_FILES += \
@@ -127,6 +128,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.qualcomm.bluetooth.ftp=true
 
 PRODUCT_PROPERTY_OVERRIDES += \
+    debug.sf.hw=1 \
     debug.composition.type=dyn \
     debug.hwc.dynThreshold=1.9 \
     persist.hwc.mdpcomp.enable=false \
@@ -136,6 +138,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.max.fling_velocity=4000 \
     ro.opengles.version=131072 \
     ro.sf.lcd_density=240
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    debug.egl.recordable.rgba8888=1
 
 PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.heapgrowthlimit=52m \
