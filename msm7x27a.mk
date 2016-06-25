@@ -138,6 +138,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.opengles.version=131072 \
     ro.sf.lcd_density=240
 
+ PRODUCT_PROPERTY_OVERRIDES += \
+    debug.egl.recordable.rgba8888=1
+
 PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.heapgrowthlimit=52m \
     dalvik.vm.heaptargetutilization=0.25
